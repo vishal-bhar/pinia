@@ -19,6 +19,10 @@ const callingApp = (text) => {
 const toggle = (id) => {
   toggleTodo(id);
 };
+/**
+ * Deletes a todo item with the given id.
+ * Calls the deleteTodo() method from the todo store, passing the id.
+ */
 const deleteT = (id) => {
   deleteTodo(id);
 };
