@@ -11,22 +11,11 @@ const { todos } = storeToRefs(todoStore);
 
 const { addTodo, toggleTodo, deleteTodo  } = todoStore;
 
-/**
- * callingApp is a function that takes in a text parameter.
- * It calls the addTodo function, passing the text as a parameter to add a new todo item.
- * It also resets the newTodo ref by setting its value to an empty string.
- *
- * This allows creating a new todo item from the user input in the text box,
- * and clearing the input after adding.
- */
 const callingApp = (text) => {
   addTodo(text);
   newTodo.value = "";
 };
-/**
- * Toggles the completed state of a todo item with the given id.
- * Calls the toggleTodo() method from the todo store, passing the id.
- */
+
 const toggle = (id) => {
   toggleTodo(id);
 };
