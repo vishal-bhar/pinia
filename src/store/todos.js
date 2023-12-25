@@ -18,7 +18,19 @@ export const useTodosStore = defineStore("todos", {
         isFinish: false,
       },
     ],
+    filter:"all",
   }),
+
+  getters:{
+    filterTodos(){
+      if(this.filter==="finished"){
+       return this.todos.filter((t)=>t.isFinish)
+      }else if(this.filter==="unfinished"){
+        return this.todos.filter((t)=>!t.isFinish)
+      }
+      return this.todos;
+    }
+  },
   // this will be the action
   actions: {
     addTodo(text) {
@@ -48,5 +60,8 @@ export const useTodosStore = defineStore("todos", {
       const todo = this.todos.find((t) => t.id === id);
       if (todo) this.todos.splice(this.todos.indexOf(todo), 1);
     },
+    updatefilter(value){
+      this.filter=value;
+    }
   },
 });
